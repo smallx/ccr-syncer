@@ -32,6 +32,7 @@ type Specer interface {
 
 	LightningSchemaChange(srcDatabase string, changes *record.ModifyTableAddOrDropColumns) error
 	RenameColumn(destTableName string, renameColumn *record.RenameColumn) error
+	ModifyComment(destTableName string, modifyComment *record.ModifyComment) error
 	TruncateTable(destTableName string, truncateTable *record.TruncateTable) error
 	DropTable(tableName string, force bool) error
 	DropView(viewName string) error
