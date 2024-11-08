@@ -615,6 +615,7 @@ const (
 	TBinlogType_RENAME_TABLE                     TBinlogType = 14
 	TBinlogType_RENAME_COLUMN                    TBinlogType = 15
 	TBinlogType_MODIFY_COMMENT                   TBinlogType = 16
+	TBinlogType_MODIFY_VIEW_DEF                  TBinlogType = 17
 )
 
 func (p TBinlogType) String() string {
@@ -653,6 +654,8 @@ func (p TBinlogType) String() string {
 		return "RENAME_COLUMN"
 	case TBinlogType_MODIFY_COMMENT:
 		return "MODIFY_COMMENT"
+	case TBinlogType_MODIFY_VIEW_DEF:
+		return "MODIFY_VIEW_DEF"
 	}
 	return "<UNSET>"
 }
@@ -693,6 +696,8 @@ func TBinlogTypeFromString(s string) (TBinlogType, error) {
 		return TBinlogType_RENAME_COLUMN, nil
 	case "MODIFY_COMMENT":
 		return TBinlogType_MODIFY_COMMENT, nil
+	case "MODIFY_VIEW_DEF":
+		return TBinlogType_MODIFY_VIEW_DEF, nil
 	}
 	return TBinlogType(0), fmt.Errorf("not a valid TBinlogType string")
 }

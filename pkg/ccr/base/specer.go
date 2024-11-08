@@ -36,6 +36,7 @@ type Specer interface {
 	TruncateTable(destTableName string, truncateTable *record.TruncateTable) error
 	DropTable(tableName string, force bool) error
 	DropView(viewName string) error
+	AlterViewDef(viewName string, alterView *record.AlterView) error
 
 	AddPartition(destTableName string, addPartition *record.AddPartition) error
 	DropPartition(destTableName string, dropPartition *record.DropPartition) error
